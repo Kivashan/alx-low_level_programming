@@ -2,7 +2,6 @@
 
 /**
  *Main - Entry point
- *Prints string
  *
  *Return: Always 0(success)
  */
