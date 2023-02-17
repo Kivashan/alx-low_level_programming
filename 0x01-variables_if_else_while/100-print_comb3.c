@@ -19,7 +19,7 @@ int main(void)
 		{
 			putchar(tmp1 + 48);
 			putchar(tmp2 + 48);
-			if (i == 99)
+			if (i == 89)
 				break;
 			putchar(',');
 			putchar(' ');
