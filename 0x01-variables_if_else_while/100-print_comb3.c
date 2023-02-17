@@ -2,7 +2,7 @@
 /**
  *main - Entry poit
  *
- *Return : Always 0 (Success)
+ *Return: Always 0 (Success)
  */
 
 int main(void)
@@ -12,6 +12,11 @@ int main(void)
 
 	while (i <= 99)
 	{
+		if (i / 10 == i % 10)
+		{
+			i++;
+			continue;
+		}
 		tmp = i / 10;
 		putchar(tmp + 48);
 		tmp = i % 10;
