@@ -8,23 +8,22 @@
 int main(void)
 {
 	int i = 0;
-	int tmp = 0;
+	int tmp1 = 0;
+	int tmp2 = 0;
 
 	while (i <= 99)
 	{
-		if (i / 10 == i % 10)
+		tmp1 = i / 10;
+		tmp2 = i % 10;
+		if (tmp1 != tmp2 && tmp1 < tmp2)
 		{
-			i++;
-			continue;
+			putchar(tmp1 + 48);
+			putchar(tmp2 + 48);
+			if (i == 99)
+				break;
+			putchar(',');
+			putchar(' ');
 		}
-		tmp = i / 10;
-		putchar(tmp + 48);
-		tmp = i % 10;
-		putchar(tmp + 48);
-		if (i == 99)
-			break;
-		putchar(',');
-		putchar(' ');
 		i++;
 	}
 	putchar('\n');
