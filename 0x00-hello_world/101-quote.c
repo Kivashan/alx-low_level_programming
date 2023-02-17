@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <unistd.h>
 
 /**
  * main - Entry point
@@ -7,13 +7,9 @@
  */
 int main(void)
 {
-	int i = 0;
 	char array[] = "and that piece of art is useful\" - Dora Korpar,\
 	2015-10-19\n";
 
-	do {
-		putchar(array[i]);
-		++i;
-	} while (array[i] != '\0');
+	write(2, array, 59);
 	return (1);
 }
