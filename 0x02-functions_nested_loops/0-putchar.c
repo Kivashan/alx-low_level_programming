@@ -1,4 +1,4 @@
-#include <main.h>
+int _putchar(char);
 /**
  *main - Entry point
  *
@@ -16,5 +16,5 @@ int main(void)
 		i++;
 	}
 	_putchar('\n');
-	return 0;
+	return (0);
 }
