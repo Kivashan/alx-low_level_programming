@@ -14,7 +14,7 @@ int main(void)
 
 	printf("1, 2");
 
-	for (count = 0; count <= 96; count++)
+	for (count = 0; count < 96; count++)
 	{
 		tmp = a;
 		a = b;
