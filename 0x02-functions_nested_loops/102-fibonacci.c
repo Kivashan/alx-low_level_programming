@@ -19,7 +19,7 @@ int main(void)
 		tmp = a;
 		a = b;
 		b = a + tmp;
-		if (count == 47)
+		if (count != 47)
 			printf("%ld, ", b);
 		else
 			printf("%ld", b);
