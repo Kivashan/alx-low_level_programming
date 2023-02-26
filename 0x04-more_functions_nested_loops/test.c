@@ -1,18 +1,14 @@
 #include <stdio.h>
+#include <limits.h>
 
 int main(void)
 {
-	int tmp = 1231952;
-	int factor = 2;
+	unsigned int n = INT_MIN;
+	unsigned int m = INT_MAX;
 
-	for (factor = 2; factor <= tmp; factor++)
-	{
-		if (tmp % factor == 0)
-		{
-			printf("%d ", factor);
-			tmp = tmp / factor;
-			factor--;
-		}
-	}
+	printf("%d\n", n);
+	printf("%d\n", m);
+	
+
 	return 0;
 }
