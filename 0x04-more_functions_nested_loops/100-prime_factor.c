@@ -14,14 +14,10 @@ int main(void)
 	{
 		if (i % factor == 0 && i / factor != 0)
 		{
-			if (i / factor != 0)
-				printf("%ld", factor);
 			i = i / factor;
-			if (i > factor)
-				printf(",");
 			factor--;
 		}
 	}
-	printf("\n");
+	printf("%ld\n",factor);
 	return (0);
 }
