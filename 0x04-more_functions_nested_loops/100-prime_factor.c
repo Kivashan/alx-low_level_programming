@@ -18,6 +18,6 @@ int main(void)
 			factor--;
 		}
 	}
-	printf("%ld\n",factor);
+	printf("%ld\n", factor);
 	return (0);
 }
