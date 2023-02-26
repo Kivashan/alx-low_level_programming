@@ -19,8 +19,13 @@ int main(void)
 		tmp = a;
 		a = b;
 		b = tmp + a;
-
-		printf(", %lu", b);
+		if (b > 1000000)
+		{
+			printf(", %lu", b / 1000000);
+			printf("%lu", b % 1000000);
+		}
+		else
+			printf(", %lu", b);
 	}
 	printf("\n");
 	return (0);
