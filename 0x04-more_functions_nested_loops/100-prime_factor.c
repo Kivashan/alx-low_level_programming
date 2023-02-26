@@ -18,7 +18,7 @@ int main(void)
 				printf("%ld", factor);
 			i = i / factor;
 			if (i > factor)
-				printf(", ");
+				printf(" , ");
 			factor--;
 		}
 	}
