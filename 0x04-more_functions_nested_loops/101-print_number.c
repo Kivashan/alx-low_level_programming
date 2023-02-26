@@ -24,13 +24,11 @@ void print_number(int n)
 		}
 		tmp = (tmp * 10) + n % 10;
 		n = 0;
+		if (count == 1)
+			_putchar('-');
 
 		while (tmp >= 10)
 		{
-			if (count == 1)
-			{
-				_putchar('-');
-			}
 			_putchar(tmp % 10 + 48);
 			tmp = tmp / 10;
 		}
