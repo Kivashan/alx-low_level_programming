@@ -8,7 +8,7 @@
 
 void print_number(int n)
 {
-	int tmp = 0;
+	unsigned int tmp = 0;
 	int count = 0;
 	int last_digit = 0;
 
@@ -36,6 +36,6 @@ void print_number(int n)
 			tmp = tmp / 10;
 		}
 		_putchar(tmp + 48);
-		if(last_digit == 1)
+		if (last_digit == 1)
 			_putchar('0');
 }
