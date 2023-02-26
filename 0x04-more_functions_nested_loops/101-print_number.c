@@ -9,24 +9,25 @@
 void print_number(int n)
 {
 	unsigned int tmp = 0;
+	unsigned int m = n;
 	int count = 0;
 	int last_digit = 0;
 
-	if (n % 10 == 0 && n != 0)
+	if (m % 10 == 0 && m != 0)
 		last_digit = 1;
 	if (n < 0)
 	{
-		n = -n;
+		m = -m;
 		count = 1;
 	}
 
-		while (n > 9)
+		while (m > 9)
 		{
-			tmp = (tmp * 10) + n % 10;
-			n = n / 10;
+			tmp = (tmp * 10) + m % 10;
+			m = m / 10;
 		}
-		tmp = (tmp * 10) + n % 10;
-		n = 0;
+		tmp = (tmp * 10) + m % 10;
+		m = 0;
 		if (count == 1)
 			_putchar('-');
 
