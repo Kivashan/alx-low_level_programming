@@ -25,4 +25,6 @@ void print_array(int *a, int n);
 
 char *_strcpy(char *, char *);
 
+int _atoi(char *);
+
 #endif
