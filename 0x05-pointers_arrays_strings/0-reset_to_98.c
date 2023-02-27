@@ -2,7 +2,7 @@
 
 /**
  * reset_to_98 - Entry point
- * @&n: Takes a pointer to an int as argument
+ * @n: Takes a pointer to an int as argument
  *
  * Return: Void
  */
