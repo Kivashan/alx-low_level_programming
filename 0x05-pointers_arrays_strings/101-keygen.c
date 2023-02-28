@@ -19,11 +19,11 @@ int main(void)
 	 * c is incremented by i through each iteration and loop breaks
 	 * before c exceeds 2772
 	 */
-	for (c = 0; c < 2772; c = c + i)
+	for (c = 0; c < 2772; c += i)
 	{
+		i = rand() % 128; /* max positive range for a char is 127 */
 		if(c + i > 2772)
 			break;
-		i = rand() % 128; /* max positive range for a char is 127 */
 		printf("%c", i);
 	}
 	/* The below printf statement prints the difference between 2772 and c */
