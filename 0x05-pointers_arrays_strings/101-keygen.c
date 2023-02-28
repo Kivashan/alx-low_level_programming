@@ -13,9 +13,12 @@ int main(void)
 	int i = 0;
 
 	srand(time(NULL));
-	i = rand();
-	printf("%d\n", i);
-
+	for (int c = 0; c < 2772; c = c + i)
+	{	
+		i = rand() % 128; /* max positive range for a char is 127 */
+		printf("%c", i);
+	}
+	printf("\n");
 	return (0);
 }
 
