@@ -12,8 +12,9 @@ int main(void)
 {
 	int i = 0;
 	int c = 0;
+	time_t s;
 
-	srand(time(NULL));
+	srand((unsigned int) time(&s));
 
 	/* checksum = 2772, therfore all characters in password must total 2772
 	 * c is incremented by i through each iteration and loop breaks
@@ -26,6 +27,7 @@ int main(void)
 			break;
 		printf("%c", i);
 	}
+
 	/* The below printf statement prints the difference between 2772 and c */
 	printf("%c\n", 2772 - c);
 	return (0);
