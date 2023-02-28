@@ -10,8 +10,10 @@
 
 int main(void)
 {
+	int i = 0;
+
 	srand(time(NULL));
-	int i = rand();
+	i = rand();
 	printf("%d\n", i);
 
 	return (0);
