@@ -10,7 +10,7 @@
 void print_number(int n)
 {
 	unsigned int tmp = n, tmp2 = n;
-	unsigned int count = 1;
+	unsigned int count;
 
 	if (n < 0)
 	{
@@ -18,6 +18,7 @@ void print_number(int n)
 		tmp2 = -n;
 	}
 
+	count = 1;
 	while (tmp2 > 9)
 	{
 		tmp2 = tmp2 / 10;
