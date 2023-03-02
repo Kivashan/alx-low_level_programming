@@ -9,13 +9,18 @@
 
 void print_number(int n)
 {
-	unsigned int tmp = n, tmp2 = n;
-	unsigned int count;
+	unsigned int tmp, tmp2, count;
 
 	if (n < 0)
 	{
 		_putchar('-');
 		tmp2 = -n;
+		tmp = -n;
+	}
+	else
+	{
+		tmp2 = n;
+		tmp = n;
 	}
 
 	count = 1;
