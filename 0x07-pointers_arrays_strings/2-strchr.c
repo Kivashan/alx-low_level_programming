@@ -2,8 +2,8 @@
 
 /**
  * _strchr - returns first occurrence of c if found, else NULL
- * @s - source string
- * @c - character to search for
+ * @s: source string
+ * @c: character to search for
  *
  * Return: returns 1st occurence of c if found else NULL
  */
