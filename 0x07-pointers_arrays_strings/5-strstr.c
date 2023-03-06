@@ -11,21 +11,23 @@
 char *_strstr(char *haystack, char *needle)
 {
 	int i;
+	char *test2 = haystack;
 
 	while (*haystack)
 	{
 		char *test = needle;
 
+		test2 = haystack;
 		i = 1;
 		while (*test)
 		{
-			if (*test != *haystack)
+			if (*test != *test2)
 			{
 				i = 0;
 				break;
 			}
 			test++;
-			haystack++;
+			test2++;
 		}
 		if (i == 1)
 			return (needle);
