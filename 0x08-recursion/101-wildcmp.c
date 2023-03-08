@@ -10,9 +10,9 @@
 
 int wildcmp(char *s1, char *s2)
 {
+	if (*s1 && *s2)
+		return (1);
+	else
+		return (0);
 }
 
-char *remove_consecutive_wild(char *s2)
-{
-	if(*s2 == '*' && *(s2 + 1) == '*')
-		return *ssdd
