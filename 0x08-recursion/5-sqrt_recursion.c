@@ -7,9 +7,6 @@
  * Return: -1 if no natural square root exists, else returns square root
  */
 
-int i = 1;
-int j = 0;
-
 int _sqrt_recursion(int n)
 {
 	if (n < 0 || n < i * i)
@@ -19,7 +16,7 @@ int _sqrt_recursion(int n)
 	else if (n > i * i)
 	{
 		i++;
-		return (1 * _sqrt_recursion(n));
+		return (1 * i(n));
 	}
 	else
 	{
