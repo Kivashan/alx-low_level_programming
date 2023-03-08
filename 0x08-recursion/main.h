@@ -29,4 +29,6 @@ int string_length(char *, int);
 
 int test_palindrome(char *, int, int);
 
+int wildcmp(char *, char *);
+
 #endif
