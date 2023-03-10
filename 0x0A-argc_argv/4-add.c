@@ -25,7 +25,10 @@ int main(int argc, char *argv[])
 				is_num = 1;
 			}
 			else if (argv[i][j])
+			{
+				is_num = 0;
 				is_char = 1;
+			}
 		}
 	}
 	if (is_char == 0 && is_num == 1)
