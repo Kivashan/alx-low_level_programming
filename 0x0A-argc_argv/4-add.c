@@ -31,9 +31,9 @@ int main(int argc, char *argv[])
 			}
 		}
 	}
-	if (is_char == 0 && is_num == 1)
+	if (is_char == 0 && is_num == 1 && argc >= 3)
 		printf("%d\n", sum);
-	else if (is_char == 1 && is_num == 0)
+	else if (is_num == 0)
 		printf("0\n");
 	else
 	{	printf("Error\n");
