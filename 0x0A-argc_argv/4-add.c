@@ -11,17 +11,18 @@
 
 int main(int argc, char *argv[])
 {
-	int i, j, sum = 0;
+	int i, j, tmp, sum = 0;
 	int is_num = 0;
 	int is_char = 0;
 
 	for (i = 1; i < argc; i++)
 	{
+		tmp = 0;
 		for (j = 0; argv[i][j] != '\0'; j++)
 		{
 			if (argv[i][j] >= '0' && argv[i][j] <= '9')
 			{
-				sum += argv[i][j] - 48;
+				tmp = (tmp * 10) + (argv[i][j] - 48);
 				is_num = 1;
 			}
 			else if (argv[i][j])
@@ -30,6 +31,7 @@ int main(int argc, char *argv[])
 				is_char = 1;
 			}
 		}
+		sum += tmp;
 	}
 	if (is_char == 0 && is_num == 1 && argc >= 3)
 		printf("%d\n", sum);
