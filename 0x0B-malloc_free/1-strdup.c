@@ -11,13 +11,18 @@
 
 char *_strdup(char *str)
 {
+	int len = 0;
 	int i = 0;
 	char *array;
 
-	/* allocate memory to array */
-	array = malloc(sizeof(*str));
+	/* get len of str */
+	while (str[len] != '\0')
+		len++;
 
-	while (!array)
+	/* allocate memory to array */
+	array = malloc(sizeof(char) * len);
+
+	if (!array || len == 0)
 		return (NULL);
 
 	/* initialize array with values stored in str */
