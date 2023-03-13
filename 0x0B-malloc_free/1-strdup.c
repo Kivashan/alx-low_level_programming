@@ -15,6 +15,9 @@ char *_strdup(char *str)
 	int i = 0;
 	char *array;
 
+	if (str == NULL)
+		return (NULL);
+
 	/* get len of str */
 	while (str[len] != '\0')
 		len++;
@@ -22,7 +25,7 @@ char *_strdup(char *str)
 	/* allocate memory to array */
 	array = malloc(sizeof(char) * (len + 1));
 
-	if (!str || len == 0)
+	if (!array || len == 0)
 		return (NULL);
 
 	/* initialize array with values stored in str */
