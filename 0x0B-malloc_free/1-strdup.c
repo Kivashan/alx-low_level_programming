@@ -25,7 +25,7 @@ char *_strdup(char *str)
 	/* allocate memory to array */
 	array = malloc(sizeof(char) * (len + 1));
 
-	if (!array || len == 0)
+	if (!array)
 		return (NULL);
 
 	/* initialize array with values stored in str */
