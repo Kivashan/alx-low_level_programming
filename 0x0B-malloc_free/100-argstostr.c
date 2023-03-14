@@ -30,7 +30,7 @@ char *argstostr(int ac, char **av)
 
 
 	/* memory allocation for array */
-	array = malloc(sizeof(char) * (len + ac));
+	array = malloc(sizeof(char) * (len + i));
 
 	/* memory allocation check */
 	if (!array)
