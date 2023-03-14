@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
 
-int str_length(char *s1, char *s2);
+int str_length(char *s1);
 
 /**
  * str_concat - allocates new memory for a string and stores s1 and s2 in new
@@ -19,7 +19,14 @@ char *str_concat(char *s1, char *s2)
 	int i;
 	int j;
 
-	len = str_length(s1, s2);
+	if (s1 == NULL && s2 == NULL)
+		len = 0;
+	else if (s1 == NULL)
+		len = str_length(s2) + 1;
+	else if (s2 == NULL)
+		len = str_length(s1) + 1;
+	else
+		len = str_length(s1) + str_length(s2) + 1;
 
 	/* allocate memory */
 	array = malloc(sizeof(char) * len);
@@ -42,12 +49,11 @@ char *str_concat(char *s1, char *s2)
 /**
  * str_length - get length of s1 and s2
  * @s1: string
- * @s2: string
  *
  * Return: length of string
  */
 
-int str_length(char *s1, char *s2)
+int str_length(char *s1)
 {
 	int len = 0;
 	int i;
@@ -55,8 +61,5 @@ int str_length(char *s1, char *s2)
 	for (i = 0; s1[i] != '\0'; i++)
 		len++;
 
-	for (i = 0; s2[i] != '\0'; i++)
-		len++;
-
-	return (len + 1);
+	return (len);
 }
