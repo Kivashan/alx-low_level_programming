@@ -38,13 +38,13 @@ char *str_concat(char *s1, char *s2)
 	/* copy contents of s1 and s2 to array */
 	if (s1)
 	{
-		for (i = 0; i < len && s1[i] != '\0'; i++)
+		for (i = 0; si[i]; i++)
 			array[i] = s1[i];
 	}
 
 	if (s2)
 	{
-		for (j = 0; s2[j] != '\0'; j++)
+		for (j = 0; s2[j]; j++)
 			array[i + j] = s2[j];
 	}
 
