@@ -24,7 +24,7 @@ char *str_concat(char *s1, char *s2)
 	/* allocate memory */
 	array = malloc(sizeof(char) * len);
 
-	if (!array && len == 0)
+	if (!array)
 		return (NULL);
 
 	/* copy contents of s1 and s2 to array */
