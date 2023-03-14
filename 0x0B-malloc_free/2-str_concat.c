@@ -21,10 +21,7 @@ char *str_concat(char *s1, char *s2)
 
 	/* checks for NULL string */
 	if (s1 == NULL && s2 == NULL)
-	{
-		array = "";
-		return (array);
-	}
+		len = 0;
 	else if (s1 == NULL)
 		len = str_length(s2) + 1;
 	else if (s2 == NULL)
