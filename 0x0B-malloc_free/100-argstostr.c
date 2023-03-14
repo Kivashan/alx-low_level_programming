@@ -13,7 +13,7 @@ char *argstostr(int ac, char **av)
 {
 	char *array;
 	int len;
-	int i = ac - 1;
+	int i = 0;
 	int j = 0;
 	int k = 0;
 
@@ -22,12 +22,11 @@ char *argstostr(int ac, char **av)
 		return (NULL);
 
 	/* length of all strings in av + whitespace between arguments */
-	for (; i >= 0 ; i--)
+	for (i = 0; i < ac ; i++)
 	{
 		for (j = 0; av[i][j]; j++)
 			len++;
 	}
-
 
 	/* memory allocation for array */
 	array = malloc(sizeof(char) * (len + ac));
@@ -42,9 +41,9 @@ char *argstostr(int ac, char **av)
 		for (j = 0; av[i][j]; j++, k++)
 			array[k] = av[i][j];
 		array[k] = '\n';
-		k++;
+		if (i != ac - 1)
+			k++;
 	}
-	
 
 	return (array);
 }
