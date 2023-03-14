@@ -41,9 +41,9 @@ char *argstostr(int ac, char **av)
 		for (j = 0; av[i][j]; j++, k++)
 			array[k] = av[i][j];
 		array[k] = '\n';
-		if (i != ac - 1)
-			k++;
+		k++;
 	}
+	array[k] = '\0';
 
 	return (array);
 }
