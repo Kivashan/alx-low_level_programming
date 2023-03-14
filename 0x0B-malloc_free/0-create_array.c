@@ -15,12 +15,10 @@ char *create_array(unsigned int size, char c)
 	unsigned int a;
 
 	/*allocates memory*/
-
 	array = malloc(size * sizeof(char));
 
 	/* if statement checks if malloc is successful or if size != 0*/
 	/* returns Null if fail*/
-
 	if (!array || size == 0)
 	{
 		return (NULL);
