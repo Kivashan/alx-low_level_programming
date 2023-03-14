@@ -36,7 +36,7 @@ char **strtow(char *str)
 	}
 
 	/* allocate memory to array of strings */
-	array = malloc(sizeof(*array) * (wordCount + 1));
+	array = malloc(sizeof(*array) * (wordCount));
 
 	/* check if memory allocation was successful */
 	if (!array)
