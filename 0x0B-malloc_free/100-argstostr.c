@@ -30,7 +30,7 @@ char *argstostr(int ac, char **av)
 
 
 	/* memory allocation for array */
-	array = malloc(sizeof(char) * (len + i));
+	array = malloc(sizeof(char) * (len + ac));
 
 	/* memory allocation check */
 	if (!array)
@@ -44,7 +44,7 @@ char *argstostr(int ac, char **av)
 		array[k] = '\n';
 		k++;
 	}
-	array[k] = '\0';
+	
 
 	return (array);
 }
