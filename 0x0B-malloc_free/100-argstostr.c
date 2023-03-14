@@ -12,13 +12,13 @@
 char *argstostr(int ac, char **av)
 {
 	char *array;
-	int len;
-	int i = 0;
-	int j = 0;
+	int len = 0;
+	int i;
+	int j;
 	int k = 0;
 
 	/* checks for ac and av */
-	if (ac == 0 || !av)
+	if (ac == 0 || av == NULL)
 		return (NULL);
 
 	/* length of all strings in av + whitespace between arguments */
@@ -43,7 +43,6 @@ char *argstostr(int ac, char **av)
 		array[k] = '\n';
 		k++;
 	}
-	array[k] = '\0';
 
 	return (array);
 }
