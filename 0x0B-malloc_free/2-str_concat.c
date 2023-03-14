@@ -24,6 +24,9 @@ char *str_concat(char *s1, char *s2)
 	/* allocate memory */
 	array = malloc(sizeof(char) * len);
 
+	if (!array && len == 0)
+		return (NULL);
+
 	/* copy contents of s1 and s2 to array */
 	for (i = 0; i < len && s1[i] != '\0'; i++)
 		array[i] = s1[i];
