@@ -25,7 +25,7 @@ char **strtow(char *str)
 	wordCount = count_words(str);	
 
 	/* allocate memory to array of strings */
-	array = malloc(sizeof(*array) * (wordCount));
+	array = malloc(sizeof(*array) * (wordCount + 1));
 
 	/* check if memory allocation was successful */
 	if (!array)
@@ -52,13 +52,6 @@ char **strtow(char *str)
 		array[i] = malloc(sizeof(char) * (len + 1));
 
 		/* check for memory allocation failure */
-		if (!array[i])
-		{
-			while (i >= 0)
-				free(array[i--]);
-			free(array);
-			return (NULL);
-		}
 
 		for (j = 0; j < len; j++)
 			array[i][j] = str[k - len + j];
