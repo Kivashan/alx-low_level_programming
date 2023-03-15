@@ -50,7 +50,7 @@ char **strtow(char *str)
 		}
 
 		/* allocate memory for individual strings */
-		array[i] = malloc(sizeof(*array[i]) * (len + 1));
+		array[i] = malloc(sizeof(*array[i]) * (len));
 
 		/* check for memory allocation failure */
 		if (!array[i])
