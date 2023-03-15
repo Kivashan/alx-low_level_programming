@@ -26,7 +26,7 @@ char **strtow(char *str)
 	if (wordCount == 0)
 		return (NULL);
 	/* allocate memory to array of strings */
-	array = malloc(sizeof(char*) * (wordCount));
+	array = malloc(sizeof(char*) * (wordCount + 1));
 
 	/* check if memory allocation was successful */
 	if (!array)
@@ -50,7 +50,7 @@ char **strtow(char *str)
 		}
 
 		/* allocate memory for individual strings */
-		array[i] =(char*) malloc(sizeof(char) * (len - 1));
+		array[i] =(char*) malloc(sizeof(char) * (len + 1));
 
 		/* check for memory allocation failure */
 		if (i == wordCount)
