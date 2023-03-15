@@ -32,7 +32,7 @@ char **strtow(char *str)
 		return (NULL);
 
 	/* i traverses the rows in 2d array */
-	for (i = 0; i < wordCount; i++)
+	for (i = 0; i <= wordCount; i++)
 	{
 		len = 0;
 		for (; str[k] != '\0'; k++)
