@@ -21,12 +21,12 @@ char **strtow(char *str)
 		return (NULL);
 
 	/* no of words/rows*/
-	wordCount = count_words(str);	
-	
+	wordCount = count_words(str);
+
 	if (wordCount == 0)
 		return (NULL);
 	/* allocate memory to array of strings */
-	array = malloc(sizeof(*array) * (wordCount + 1));
+	array = malloc(sizeof(char*) * (wordCount));
 
 	/* check if memory allocation was successful */
 	if (!array)
@@ -50,7 +50,7 @@ char **strtow(char *str)
 		}
 
 		/* allocate memory for individual strings */
-		array[i] = malloc(sizeof(*array[i]) * (len - 1));
+		array[i] =(char*) malloc(sizeof(char) * (len - 1));
 
 		/* check for memory allocation failure */
 		if (i == wordCount)
