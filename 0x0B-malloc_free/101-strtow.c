@@ -1,7 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
 
 int count_words(char *str);
 /**
@@ -55,10 +54,12 @@ char **strtow(char *str)
 
 		/* check for memory allocation failure */
 		if (i == wordCount)
-			array[i][0] = '\0';
+			array[i] = NULL;
 		else
-			for (j = 0; j < len; j++)
+		{	for (j = 0; j < len; j++)
 				array[i][j] = str[k - len + j];
+			array[i][j] = '\0';
+		}
 	}
 	return (array);
 }
