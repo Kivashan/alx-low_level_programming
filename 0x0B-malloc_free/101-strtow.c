@@ -52,11 +52,12 @@ char **strtow(char *str)
 		array[i] = malloc(sizeof(char) * (len + 1));
 
 		/* check for memory allocation failure */
-
-		for (j = 0; j < len; j++)
-			array[i][j] = str[k - len + j];
+		if (i == wordCount)
+			array[i] = NULL;
+		else
+			for (j = 0; j < len; j++)
+				array[i][j] = str[k - len + j];
 	}
-	array[i] = NULL;
 	return (array);
 }
 
