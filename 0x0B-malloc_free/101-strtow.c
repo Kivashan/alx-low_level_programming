@@ -26,7 +26,7 @@ char **strtow(char *str)
 
 	printf("%d\n", wordCount);
 	/* allocate memory to array of strings */
-	array = malloc(sizeof(*array) * (wordCount));
+	array = malloc(sizeof(*array) * (wordCount + 1));
 
 	/* check if memory allocation was successful */
 	if (!array)
