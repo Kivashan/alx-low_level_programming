@@ -53,6 +53,13 @@ char **strtow(char *str)
 		array[i] =(char*) malloc(sizeof(char) * (len + 1));
 
 		/* check for memory allocation failure */
+		if (!array[i])
+		{
+			while (i >= 0)
+				free(array[i]);
+			free(array);
+		}
+
 		if (i == wordCount)
 			*(array + i) = NULL;
 		else
