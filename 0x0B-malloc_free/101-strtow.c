@@ -24,7 +24,6 @@ char **strtow(char *str)
 	/* no of words/rows*/
 	wordCount = count_words(str);	
 
-	printf("%d\n", wordCount);
 	/* allocate memory to array of strings */
 	array = malloc(sizeof(*array) * (wordCount + 1));
 
@@ -63,7 +62,6 @@ char **strtow(char *str)
 
 		for (j = 0; j <= len; j++)
 			array[i][j] = str[k - len + j];
-		array[i][j] = '\0';
 	}
 	array[i] = NULL;
 	return (array);
