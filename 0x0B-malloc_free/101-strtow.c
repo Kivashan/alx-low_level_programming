@@ -54,7 +54,7 @@ char **strtow(char *str)
 
 		/* check for memory allocation failure */
 		if (i == wordCount)
-			array[i] = NULL;
+			*(array + i) = NULL;
 		else
 		{	for (j = 0; j < len; j++)
 				array[i][j] = str[k - len + j];
