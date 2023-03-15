@@ -1,7 +1,9 @@
 #include "main.h"
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
+int count_words(char *str);
 /**
  * strtow - function that splits a string into words
  * @str: string that needs to be split into words
@@ -12,29 +14,17 @@
 char **strtow(char *str)
 {
 	char **array;
-	int len = 0;
-	int i;
-	int lookingForWord = 1;
-	int wordCount = 0;
-	int j = 0;
-	int k = 0;
+	int len = 0, wordCount = 0;
+	int i = 0, j = 0, k = 0;
 
 	/* check for argument passed*/
 	if (!str || strlen(str) == 0)
 		return (NULL);
 
-	/* no of words/rows*/	
-	for (i = 0; str[i]; i++)
-	{	
-		if (lookingForWord && str[i] != ' ')
-		{
-			wordCount++;
-			lookingForWord = 0;
-		}
-		if (!lookingForWord && str[i] == ' ')
-			lookingForWord = 1;
-	}
+	/* no of words/rows*/
+	wordCount = count_words(str);	
 
+	printf("%d\n", wordCount);
 	/* allocate memory to array of strings */
 	array = malloc(sizeof(*array) * (wordCount));
 
@@ -76,7 +66,22 @@ char **strtow(char *str)
 		array[i][j] = '\0';
 	}
 	array[i] = NULL;
-
 	return (array);
 }
 
+int count_words(char *str)
+{
+	int i = 0, lookingForWord = 1, wordCount = 0;
+
+	for (i = 0; str[i]; i++)
+	{
+		if (lookingForWord && str[i] != ' ')
+		{
+			wordCount++;
+			lookingForWord  = 0;
+		}
+		if (!lookingForWord && str[i] == ' ')
+			lookingForWord = 1;
+	}
+	return wordCount;
+}
