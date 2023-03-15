@@ -23,7 +23,9 @@ char **strtow(char *str)
 
 	/* no of words/rows*/
 	wordCount = count_words(str);	
-
+	
+	if (wordCount == 0)
+		return (NULL);
 	/* allocate memory to array of strings */
 	array = malloc(sizeof(*array) * (wordCount + 1));
 
