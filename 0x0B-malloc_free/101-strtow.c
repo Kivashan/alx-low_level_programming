@@ -60,7 +60,7 @@ char **strtow(char *str)
 			return (NULL);
 		}
 
-		for (j = 0; j <= len; j++)
+		for (j = 0; j < len; j++)
 			array[i][j] = str[k - len + j];
 	}
 	array[i] = NULL;
