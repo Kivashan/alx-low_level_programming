@@ -18,7 +18,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		return (NULL);
 
 	/* memory allocation */
-	ptr = malloc((nmemb + 1) * size);
+	ptr = malloc((nmemb) * size);
 
 	/* check for memory allocation success */
 	if (!ptr)
