@@ -25,7 +25,9 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	}
 	if (new_size == old_size)
 		return (ptr);
-
+	
+	if (ptr == NULL)
+		return (NULL);
 	/* calculate initialization length if old_size > new_size */
 	len = (old_size > new_size) ? new_size : old_size;
 
@@ -36,9 +38,6 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	if (!ptr)
 		return (NULL);
 
-	if (!ch)
-		free(ch);
-	
 	newch = ptr;
 	/* initialization */
 	for (i = 0; i < len; i++)
