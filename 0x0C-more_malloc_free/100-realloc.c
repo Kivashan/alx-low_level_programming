@@ -27,7 +27,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		return (ptr);
 
 	/* calculate initialization length if old_size > new_size */
-	len = (old_size > new_size) ? new_size : old_size;
+	len = (old_size > new_size) ? new_size + 1 : old_size + 1;
 
 	/* allocate memory */
 	ptr = malloc(new_size);
