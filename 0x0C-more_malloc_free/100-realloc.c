@@ -18,7 +18,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	unsigned char *newch; /* will point tp new addr of ptr after malloc*/
 
 	/*checks for arguments */
-	if (new_size == 0 && ptr) /*|| !ptr)*/
+	if (new_size == 0 && ptr)
 		return (NULL);
 
 	if (new_size == old_size)
@@ -38,6 +38,8 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	/* initialization */
 	for (i = 0; i < len; i++)
 		newch[i] = ch[i];
+	if (!ptr)
+		return (NULL);
 
 	return (ptr);
 }
