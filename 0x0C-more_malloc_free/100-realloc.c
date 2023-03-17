@@ -27,7 +27,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		return (ptr);
 
 	/* calculate initialization length if old_size > new_size */
-	len = (old_size > new_size) ? new_size + 1 : old_size + 1;
+	len = (old_size > new_size) ? new_size : old_size;
 
 	/* allocate memory */
 	ptr = malloc(new_size);
@@ -35,10 +35,13 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	/* check for memory allocation failure */
 	if (!ptr)
 		return (NULL);
+
+	if (!ch)
+		free(ch);
 	
 	newch = ptr;
 	/* initialization */
-	for (i = 0; i <= len; i++)
+	for (i = 0; i < len; i++)
 		newch[i] = ch[i];
 	free(ch);
 
