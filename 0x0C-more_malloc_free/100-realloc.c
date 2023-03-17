@@ -40,8 +40,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	/* initialization */
 	for (i = 0; i < len; i++)
 		newch[i] = ch[i];
-	if (!ptr)
-		return (NULL);
+	free(ch);
 
 	return (ptr);
 }
