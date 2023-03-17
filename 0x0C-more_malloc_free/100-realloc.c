@@ -34,8 +34,10 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 
 	/* check for memory allocation failure */
 	if (!ptr)
+	{
+		free(ptr);
 		return (NULL);
-
+	}
 	newch = ptr;
 	/* initialization */
 	for (i = 0; i < len; i++)
