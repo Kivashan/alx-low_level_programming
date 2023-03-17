@@ -54,6 +54,8 @@ int check_main_args(int ac, char *av[])
 /* function to print strings */
 void _print(char *s)
 {
-	while (s)
-		_putchar(*s++);
+	int i = 0;
+
+	for (; s[i]; i++)
+		_putchar(s[i]);
 }
