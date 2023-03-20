@@ -19,6 +19,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	hound.age = age;
 	hound.owner = owner;
 
-
+	if (!b)
+		return (NULL);
 	return (b);
 }
