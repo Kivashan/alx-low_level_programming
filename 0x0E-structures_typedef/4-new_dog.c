@@ -14,7 +14,7 @@
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *b;
-	
+
 	/* check on arguments */
 	if (!name)
 		name = "";
@@ -30,7 +30,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 
 	/* allocation of memory for each element */
 	b->name = malloc(sizeof(char) * (strlen(name) + 1));
-	b->owner = malloc(sizeof(char) * (strlen(owner) + 1));
+	b->owner = malloc(sizeof(char) * (strlen(owner) + 1));	
+	b->age = malloc(sizeof(float));
 
 	/* check for memory allocation failure */
 	if (!(b->name) || !(b->owner))
