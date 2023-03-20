@@ -34,12 +34,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 
 	/* check for memory allocation failure */
 	if (!(b->name) || !(b->owner))
-	{
-		free(b->owner);
-		free(b->name);
-		free(b);
 		return (NULL);
-	}
 
 	b->name = name;
 	b->age = age;
