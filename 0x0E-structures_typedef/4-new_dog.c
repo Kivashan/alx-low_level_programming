@@ -14,6 +14,12 @@
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *b;
+	
+	/* check on arguments */
+	if (!name)
+		name = "";
+	if (!owner)
+		name = "";
 
 	/* allocation of memory block for b */
 	b = malloc(sizeof(dog_t));
