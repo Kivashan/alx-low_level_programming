@@ -17,7 +17,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 
 	/* allocation of memory block for b */
 	b = malloc(sizeof(dog_t));
-	
+
 	/* check for memory allocation failure */
 	if (!b)
 		return (NULL);
@@ -25,7 +25,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	/* allocation of memory for each element */
 	b->name = malloc(sizeof(char) * (strlen(name) + 1));
 	b->owner = malloc(sizeof(char) * (strlen(owner) + 1));
-	
+
 	/* check for memory allocation failure */
 	if (!(b->name) || !(b->owner))
 	{
@@ -34,7 +34,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(b);
 		return (NULL);
 	}
-	
+
 	b->name = name;
 	b->age = age;
 	b->owner = owner;
