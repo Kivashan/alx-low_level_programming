@@ -13,6 +13,7 @@
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
+	long unsigned int i;
 	dog_t *b;
 
 	/* check on arguments */
@@ -34,9 +35,15 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (!(b->name) || !(b->owner))
 		return (NULL);
 
-	b->name = name;
 	b->age = age;
-	b->owner = owner;
+	
+	for (i = 0; i < strlen(name); i++)
+		b->name[i] = name[i];
+	b->name[i] = '\0';
+
+	for (i = 0; i < strlen(owner); i++)
+		b->owner[i] = owner[i];
+	b->owner[i] = '\0';
 
 	return (b);
 }
