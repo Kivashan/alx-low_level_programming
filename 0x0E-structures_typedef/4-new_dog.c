@@ -13,7 +13,7 @@
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	long unsigned int i;
+	unsigned long int i;
 	dog_t *b;
 
 	/* check on arguments */
@@ -33,10 +33,14 @@ dog_t *new_dog(char *name, float age, char *owner)
 
 	/* check for memory allocation failure */
 	if (!(b->name) || !(b->owner))
+	{
+		free(b->owner);
+		free(b->name);
+		free(b);
 		return (NULL);
 
+	/* initialization */
 	b->age = age;
-	
 	for (i = 0; i < strlen(name); i++)
 		b->name[i] = name[i];
 	b->name[i] = '\0';
