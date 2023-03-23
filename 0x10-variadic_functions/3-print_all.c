@@ -45,9 +45,8 @@ void print_all(const char * const format, ...)
 		}
 		while (a[i] == 'c' || a[i] == 'i' || a[i] == 'f' || a[i] == 's')
 		{
-			if (check == '\0' || format[i + 1] == '\0')
-				break;
-			printf(", ");
+			if (format[i + 1] != '\0')
+				printf(", ");
 			break;
 		}
 		i++;
