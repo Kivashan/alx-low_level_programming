@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 	char operator;
 
 	/* checks for arguments */
-	if (argc != 4) /*|| (!num1 && argv[1][0] != '0'))*/
+	if (argc != 4)
 	{
 		printf("Error\n");
 		exit(98);

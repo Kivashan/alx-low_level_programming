@@ -1,5 +1,6 @@
 #include "3-calc.h"
 #include <stdlib.h>
+#include <string.h>
 
 /**
  * get_op_func - returns a pointer to the function that corresponds
@@ -25,7 +26,7 @@ int (*get_op_func(char *s))(int, int)
 	 * while loop iterates through array of op_t and returns pointer
 	 * if there is a succeful match
 	 */
-	while (ops[i].op != NULL)
+	while (ops[i].op != NULL && strlen(s) == 1)
 	{
 		if ((ops[i].op[0]) == s[0])
 			return (ops[i].f);
