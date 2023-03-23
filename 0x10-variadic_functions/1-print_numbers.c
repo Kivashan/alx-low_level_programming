@@ -4,7 +4,7 @@
 
 /**
  * print_numbers - function that prints numbers followed by a seperator
- * @seperator: a pointer to a char/s that are used to seperate numbers
+ * @separator: a pointer to a char/s that are used to seperate numbers
  * @n: total number of arguments
  *
  * Return: Void
@@ -33,9 +33,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 				printf("%s", separator);
 			printf("%d", x);
 		}
-		printf("\n");
 		va_end(nums);
 	}
-	else
-		return;
+	printf('\n');
 }
