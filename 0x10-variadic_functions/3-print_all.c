@@ -20,6 +20,7 @@ void print_all(const char * const format, ...)
 	int i = 0;
 	va_list all;
 	const char *a = format;
+	char check;
 
 	va_start(all, format);
 	while (format[i] != '\0')
@@ -27,7 +28,8 @@ void print_all(const char * const format, ...)
 		switch (format[i])
 		{
 			case 'c':
-				print_char(va_arg(all, int));
+				check = va_arg(all, int);
+				print_char(check);
 				break;
 			case 'i':
 				print_num(va_arg(all, int));
@@ -43,11 +45,13 @@ void print_all(const char * const format, ...)
 		}
 		while (a[i] == 'c' || a[i] == 'i' || a[i] == 'f' || a[i] == 's')
 		{
-			if (format[i + 1] != '\0')
-				printf(", ");
+			if (check == '\0' || format[i + 1] == '\0')
+				break;
+			printf(", ");
 			break;
 		}
 		i++;
+		check = 'h';
 	}
 	va_end(all);
 	printf("\n");
