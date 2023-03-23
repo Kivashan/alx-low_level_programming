@@ -5,7 +5,7 @@
 
 void print_char(int c);
 void print_num(int num);
-void print_fl(double f);
+void print_fl(float f);
 void print_str(char *s);
 
 /**
@@ -33,7 +33,7 @@ void print_all(const char * const format, ...)
 				print_num(va_arg(all, int));
 				break;
 			case 'f':
-				print_fl(va_arg(all, double));
+				print_fl((float)(va_arg(all, double)));
 				break;
 			case 's':
 				print_str(va_arg(all, char *));
@@ -81,7 +81,7 @@ void print_num(int num)
  *
  * Return: Void
  */
-void print_fl(double f)
+void print_fl(float f)
 {
 	printf("%f", f);
 }
