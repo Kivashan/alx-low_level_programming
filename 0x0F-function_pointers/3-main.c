@@ -1,14 +1,40 @@
 #include "3-calc.h"
 #include <stdlib.h>
+#include <stdio.h>
+
+/**
+ * main - Entry point
+ * @argc: Argument count
+ * @argv: Argument vector
+ *
+ * Return: 0 Successful, positive integer otherwise
+ */
 
 int main(int argc, char *argv[])
 {
-	if (argc != 4 && !atoi(argv[1]) && !atoi(argv[3]))
-		exit(98);
-	if (!get_op_func(argv[2]))
-		exit(99);
-	if ((*argv[2] == '/' || *argv[2] == '%') && *argv[3] == '0')
-		exit(100);
+	int (*calc)(int, int);
+	int num1 = atoi(argv[1]), num2 = atoi(argv[3]);
+	char operator = argv[2][0];
 
+	/* checks for arguments */
+	if (argc != 4 || (!num1 && argv[1][0] != '0') || !num2)
+	{
+		printf("Error\n");
+		exit(98);
+	}
+	if (!get_op_func(&operator))
+	{
+		printf("Error\n");
+		exit(99);
+	}
+	if ((operator == '/' || operator == '%') && operator == '0')
+	{
+		printf("Error\n");
+		exit(100);
+	}
+
+	/* assign memory address from return of get_op_func to calc */
+	calc = get_op_func(&operator);
+	printf("%d\n", calc(num1, num2));
 	return (0);
 }
