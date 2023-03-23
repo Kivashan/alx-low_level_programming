@@ -13,16 +13,20 @@
 int main(int argc, char *argv[])
 {
 	int (*calc)(int, int);
-	int num1 = atoi(argv[1]), num2 = atoi(argv[3]);
-	char operator = argv[2][0];
+	int num1, num2;
+	char operator;
 
 	/* checks for arguments */
-	if (argc != 4 || (!num1 && argv[1][0] != '0') ||\
-		       	(!num2 && argv[3][0] != '0'))
+	if (argc != 4) /*|| (!num1 && argv[1][0] != '0'))*/
 	{
 		printf("Error\n");
 		exit(98);
 	}
+
+	num1 = atoi(argv[1]);
+	num2 = atoi(argv[3]);
+	operator = argv[2][0];
+
 	if (!get_op_func(&operator))
 	{
 		printf("Error\n");
