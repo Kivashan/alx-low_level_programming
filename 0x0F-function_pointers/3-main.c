@@ -17,7 +17,8 @@ int main(int argc, char *argv[])
 	char operator = argv[2][0];
 
 	/* checks for arguments */
-	if (argc != 4 || (!num1 && argv[1][0] != '0') || !num2)
+	if (argc != 4 || (!num1 && argv[1][0] != '0') ||\
+		       	(!num2 && argv[3][0] != '0'))
 	{
 		printf("Error\n");
 		exit(98);
@@ -27,7 +28,7 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(99);
 	}
-	if ((operator == '/' || operator == '%') && operator == '0')
+	if ((operator == '/' || operator == '%') && num2 == 0)
 	{
 		printf("Error\n");
 		exit(100);
