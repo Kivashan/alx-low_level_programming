@@ -26,7 +26,7 @@ int (*get_op_func(char *s))(int, int)
 	 * while loop iterates through array of op_t and returns pointer
 	 * if there is a succeful match
 	 */
-	while (ops[i].op != NULL && strlen(s) == 1)
+	while (ops[i].op != NULL)
 	{
 		if ((ops[i].op[0]) == s[0])
 			return (ops[i].f);
