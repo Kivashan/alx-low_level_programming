@@ -15,7 +15,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	unsigned int i;
 
 	/* checks for arguments if n != 0 proceed with iteration through nums */
-	if (n != 0)
+	if (n > 0)
 	{
 		va_list nums;
 
@@ -36,4 +36,6 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		printf("\n");
 		va_end(nums);
 	}
+	else
+		return;
 }
