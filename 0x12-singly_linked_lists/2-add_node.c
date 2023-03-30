@@ -1,13 +1,17 @@
 #include "lists.h"
 
 /**
- * 
+ * add_node - Adds a new node
+ * @head: Start of linked list
+ * @str: string to add as a member of a node
+ *
+ * Return: Address of new element or NULL if fail
  */
 
 list_t *add_node(list_t **head, const char *str)
 {
 	list_t *new;
-	
+
 	/* Memory allocation for node */
 	new = malloc(sizeof(size_t));
 	if (!new)
@@ -19,9 +23,3 @@ list_t *add_node(list_t **head, const char *str)
 	*head = new;
 	return (*head);
 }
-
-	
-
-	
-
-
