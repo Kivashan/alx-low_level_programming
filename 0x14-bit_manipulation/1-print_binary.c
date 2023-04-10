@@ -12,7 +12,7 @@ void print_binary(unsigned long int n)
 	int count = 0;
 	int flag = 0;
 
-	while ((unsigned long int)(1 << count) < n)
+	while ((unsigned long int)(1 << count) <= n / 2)
 		count++;
 
 	while (count >= 0)
