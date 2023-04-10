@@ -10,6 +10,7 @@
 void print_binary(unsigned long int n)
 {
 	int count = 0;
+	int flag = 0;
 
 	while ((unsigned long int)(1 << count) < n)
 		count++;
@@ -20,8 +21,9 @@ void print_binary(unsigned long int n)
 		{
 			n = n - (1 << count);
 			_putchar('1');
+			flag = 1;
 		}
-		else
+		else if (flag == 1 || n == 0)
 			_putchar('0');
 		count--;
 	}
