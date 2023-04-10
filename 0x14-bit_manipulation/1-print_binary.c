@@ -1,4 +1,11 @@
-#include <stdio.h>
+#include "main.h"
+
+/**
+ * print_binary - prints a binary string representation of the given value
+ * @n: The given value
+ *
+ * Return: Void
+ */
 
 void print_binary(unsigned long int n)
 {
@@ -12,11 +19,11 @@ void print_binary(unsigned long int n)
 		if ((unsigned long int)(1 << count) <= n)
 		{
 			n = n - (1 << count);
-			printf("1");
+			_putchar('1');
 		}
 		else
-			printf("0");
+			_putchar('0');
 		count--;
 	}
-	printf("\n");
+	_putchar('\n');
 }
