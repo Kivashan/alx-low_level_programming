@@ -1,4 +1,5 @@
 #include "main.h"
+#include <limits.h>
 
 /**
  * get_bit - returns the bit at the given index
@@ -15,7 +16,7 @@ int get_bit(unsigned long int n, unsigned int index)
 	while ((n >> count) > 1)
 		count++;
 
-	if (index > count)
+	if (index > count || index > INT_MAX)
 		return (-1);
 
 	return ((n >> index) & 1 ? 1 : 0);
