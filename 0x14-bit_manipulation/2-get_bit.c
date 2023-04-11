@@ -12,7 +12,7 @@ int get_bit(unsigned long int n, unsigned int index)
 {
 	unsigned int count = 0;
 
-	while ((n >> count) > 1)
+	while ((n >> count) > 0)
 		count++;
 
 	if ((index > count) || (index >= (sizeof(unsigned long int) * 8)))
