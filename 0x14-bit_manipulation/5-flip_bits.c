@@ -12,11 +12,12 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
 	int index = sizeof(unsigned long int) * 8;
 	int count = 0, i;
-	
+
 	/* for loop sequences through bits from 0 to index - 1 */
 	for (i = 0; i < index; i++)
 	{
-		/* if bit at position i for n != bit at position i for m
+		/*
+		 * if bit at position i for n != bit at position i for m
 		 * then add 1 to count
 		 */
 		if (((n >> i) & 1) != ((m >> i) & 1))
