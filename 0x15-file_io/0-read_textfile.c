@@ -34,18 +34,23 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		if (r != -1)
 			w = write(STDOUT_FILENO, buffer, r);
 		else
+		{
 			free_buffer(buffer, fd);
-
+			return (0);
+		}
 	}
 	else
+	{
 		free_buffer(buffer, fd);
-
+		return (0);
+	}
 	if (w != r)
+	{
 		free_buffer(buffer, fd);
-
+		return (0);
+	}
 	free(buffer);
 	close(fd);
-
 	return (w);
 }
 
@@ -61,5 +66,4 @@ void free_buffer(char *buffer, int fd)
 {
 	free(buffer);
 	close(fd);
-	exit(0);
 }
