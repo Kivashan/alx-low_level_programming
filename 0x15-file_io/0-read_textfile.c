@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-void free_buffer(char *buffer);
+void free_buffer(char *buffer, int fd);
 
 /**
  * read_textfile - reads a text file and prints to stdout
@@ -34,14 +34,14 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		if (r != -1)
 			w = write(STDOUT_FILENO, buffer, r);
 		else
-			free_buffer(buffer);
+			free_buffer(buffer, fd);
 
 	}
 	else
-		free_buffer(buffer);
+		free_buffer(buffer, fd);
 
 	if (r != w)
-		free_buffer(buffer);
+		free_buffer(buffer, fd);
 
 	free(buffer);
 	close(fd);
@@ -56,8 +56,9 @@ ssize_t read_textfile(const char *filename, size_t letters)
  * Return: Void
  */
 
-void free_buffer(char *buffer)
+void free_buffer(char *buffer, int fd)
 {
 	free(buffer);
+	close(fd);
 	exit(0);
 }
