@@ -40,7 +40,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	else
 		free_buffer(buffer, fd);
 
-	if (r != w)
+	if (w != r)
 		free_buffer(buffer, fd);
 
 	free(buffer);
@@ -52,6 +52,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 /**
  * free_buffer - frees buffer and exits with exit code zero
  * @buffer: malloc'ed string to free
+ * @fd: file descriptor
  *
  * Return: Void
  */
