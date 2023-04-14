@@ -20,7 +20,6 @@ int create_file(const char *filename, char *text_content)
 		return (-1);
 	/* length of text_content*/
 	length_of_text = (!text_content) ? 0 : len(text_content);
-	printf("Len = %d\n", length_of_text);
 
 	/* creates file if does not exist, if exists truncates*/
 	fd = open(filename, O_RDWR | O_TRUNC);
