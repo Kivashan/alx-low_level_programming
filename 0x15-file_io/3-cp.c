@@ -20,15 +20,15 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp %s %s\n", argv[1], argv[2]);
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	/* open file 1 if it exists*/
 	fd1 = open(argv[1], O_RDONLY);
 	if (fd1 == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", argv[1]);
-		exit(95);
+		dprintf(STDERR_FILENO, "Error: Can't read from file%s\n", argv[1]);
+		exit(98);
 	}
 	/* open file 2 */
 	fd2 = open(argv[2], O_RDWR | O_CREAT | O_TRUNC, 00664);
@@ -118,7 +118,7 @@ int _read(int fd1, char *buffer, char *argv)
 	if (r == -1)
 	{
 		free(buffer);
-		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", argv);
+		dprintf(STDERR_FILENO, "Error: Can't read from file%s\n", argv);
 		exit(98);
 	}
 	return (r);
