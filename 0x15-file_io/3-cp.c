@@ -83,7 +83,7 @@ int _close(int fd1, int fd2)
  * _write - writes to fd
  * @fd2: file descriptor
  * @buffer: buffer to read from
- *
+ * @argv: string
  * Return: Number of bytes written
  */
 
@@ -106,7 +106,7 @@ int _write(int fd2, char *buffer, char *argv)
  * _read - reads from fd
  * @fd1: file descriptor
  * @buffer: buffer to store read data
- *
+ * @argv: string
  * Return: Number of bytes read
  */
 
