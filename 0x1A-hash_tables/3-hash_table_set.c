@@ -1,6 +1,7 @@
 #include "hash_tables.h"
 
 hash_node_t *create_hash_node(const char *key, const char *value);
+int is_new_key(hash_table_t *ht, int index, const char *key);
 
 /**
  * hash_table_set - adds a hash node to a hash table
@@ -38,6 +39,25 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		ht->array[index] = new;
 		return (1);
 	}
+
+	/*
+	 * check if key exists in hash table
+	 * if key does exist then change value of key
+	 */
+	if (is_new_key(ht, index, key) == 1)
+	{
+		while (ht->array[index])
+		{
+			if (strcmp(ht->array[index]->key, key) == 0)
+			{
+				ht->array[index]->key = (char *)value;
+				break;
+			}
+			ht->array[index] = ht->array[index]->next;
+		}
+		return (1);
+	}
+
 	/* add new hash node to singly linked list if not empty*/
 	new->next = ht->array[index];
 	ht->array[index] = new;
@@ -76,4 +96,28 @@ hash_node_t *create_hash_node(const char *key, const char *value)
 	new->next = NULL;
 
 	return (new);
+}
+
+/**
+ * is_new_key - checks if key already exists in singly linked list
+ * @ht: hash table
+ * @index: index of array where key belongs
+ * @key: hash key
+ *
+ * Return: 1 if key exists, 0 otherwise
+ */
+int is_new_key(hash_table_t *ht, int index, const char *key)
+{
+	if (ht->array[index] == NULL)
+		return (0);
+
+	while (ht->array[index])
+	{
+		if (strcmp(ht->array[index]->key, key) == 0)
+			return (1);
+		ht->array[index] = ht->array[index]->next;
+	}
+	if (strcmp(ht->array[index]->key, key) == 0)
+		return (1);
+	return (0);
 }
