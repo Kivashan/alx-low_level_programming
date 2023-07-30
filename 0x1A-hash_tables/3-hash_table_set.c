@@ -49,7 +49,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	/* add new node to empty singly linked list stored under array[index] */
 	if (ht->array[index] == NULL)
 	{
-		new->next = ht->array[index];
 		ht->array[index] = new;
 		return (1);
 	}
@@ -139,10 +138,6 @@ void changeV(hash_table_t **ht, const char *key, const char *value, int index)
 		{
 			if (strcmp(tmp->array[index]->key, key) == 0)
 			{
-				int len = strlen(value) + 1;
-
-				free(tmp->array[index]->value);
-				tmp->array[index]->value = malloc(sizeof(char) * len);
 				tmp->array[index]->value = (char *)value;
 				break;
 			}
