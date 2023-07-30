@@ -44,20 +44,20 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			}
 			tmp->array[index] = tmp->array[index]->next;
 		}
-		return (1);
+		return (0);
 	}
 
 	/* create a hash node for key/value pair */
-    new = create_hash_node(key, value);
-    if (!new)
-        return (0);
+	new = create_hash_node(key, value);
+	if (!new)
+		return (0);
 
-    /* add new node to empty singly linked list stored under array[index] */
-    if (ht->array[index] == NULL)
-    {   
-        ht->array[index] = new;
-        return (1);
-    }
+	/* add new node to empty singly linked list stored under array[index] */
+	if (ht->array[index] == NULL)
+	{
+		ht->array[index] = new;
+		return (1);
+	}
 
 	/* add new hash node to singly linked list if not empty*/
 	new->next = ht->array[index];
