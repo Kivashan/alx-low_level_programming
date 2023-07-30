@@ -2,6 +2,7 @@
 
 hash_node_t *create_hash_node(const char *key, const char *value);
 int is_new_key(hash_table_t **ht, int index, const char *key);
+void changeV(hash_table_t **ht, const char *key, const char *value, int index);
 
 /**
  * hash_table_set - adds a hash node to a hash table
@@ -36,19 +37,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	if (is_new_key(&tmp, index, key) == 1)
 	{
-		while (tmp->array[index])
-		{
-			if (strcmp(tmp->array[index]->key, key) == 0)
-			{
-				int len = strlen(value) + 1;
-
-				free(tmp->array[index]->value);
-				tmp->array[index]->value = malloc(sizeof(char) * len);
-				tmp->array[index]->value = (char *)value;
-				break;
-			}
-			tmp->array[index] = tmp->array[index]->next;
-		}
+		changeV(&tmp, key, value, index);
 		return (1);
 	}
 
@@ -125,7 +114,38 @@ int is_new_key(hash_table_t **ht, int index, const char *key)
 	{
 		if (strcmp(tmp->array[index]->key, key) == 0)
 			return (1);
+		if (tmp->array[index] == NULL)
+			break;
 		tmp->array[index] = tmp->array[index]->next;
 	}
 	return (0);
+}
+
+/**
+ * changeV - function that changes the data stored in the value member
+ * @ht: hash table
+ * @key: hash key
+ * @value: hash value
+ * @index: index where key belongs
+ *
+ * Return: returns 1
+ */
+
+void changeV(hash_table_t **ht, const char *key, const char *value, int index)
+{
+		hash_table_t *tmp = *ht;
+
+		while (tmp->array[index])
+		{
+			if (strcmp(tmp->array[index]->key, key) == 0)
+			{
+				int len = strlen(value) + 1;
+
+				free(tmp->array[index]->value);
+				tmp->array[index]->value = malloc(sizeof(char) * len);
+				tmp->array[index]->value = (char *)value;
+				break;
+			}
+			tmp->array[index] = tmp->array[index]->next;
+		}
 }
