@@ -19,7 +19,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	const unsigned char *key_copy = (const unsigned char *)key;
 	hash_node_t *new;
 	hash_table_t *tmp = ht;
-	hash_node_t * head;
+
 	/* first check if key is empty or NULL */
 	if (strcmp(key, "") == 0 || !key || !value)
 		return (0);
@@ -46,18 +46,16 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (!new)
 		return (0);
 
-	head = ht->array[index];
 	/* add new node to empty singly linked list stored under array[index] */
-	if (head == NULL)
+	if (ht->array[index] == NULL)
 	{
-		head = new;
+		ht->array[index] = new;
 		return (1);
 	}
 
-	
 	/* add new hash node to singly linked list if not empty*/
-	new->next = head;
-	head = new;
+	new->next = ht->array[index];
+	ht->array[index] = new;
 
 	return (1);
 }
