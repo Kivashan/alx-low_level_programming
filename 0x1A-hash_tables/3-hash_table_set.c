@@ -17,6 +17,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int index;
 	const unsigned char *key_copy = (const unsigned char *)key;
 	hash_node_t *new;
+	hash_table_t *tmp = ht;
 
 	/* first check if key is empty or NULL */
 	if (strcmp(key, "") == 0 || !key || !value)
@@ -44,16 +45,16 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	 * check if key exists in hash table
 	 * if key does exist then change value of key
 	 */
-	if (is_new_key(ht, index, key) == 1)
+	if (is_new_key(tmp, index, key) == 1)
 	{
-		while (ht->array[index])
+		while (tmp->array[index])
 		{
-			if (strcmp(ht->array[index]->key, key) == 0)
+			if (strcmp(tmp->array[index]->key, key) == 0)
 			{
-				ht->array[index]->key = (char *)value;
+				tmp->array[index]->key = (char *)value;
 				break;
 			}
-			ht->array[index] = ht->array[index]->next;
+			tmp->array[index] = tmp->array[index]->next;
 		}
 		return (1);
 	}
