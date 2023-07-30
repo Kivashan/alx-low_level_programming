@@ -1,7 +1,7 @@
 #include "hash_tables.h"
 
 hash_node_t *create_hash_node(const char *key, const char *value);
-int is_new_key(hash_table_t *ht, int index, const char *key);
+/* int is_new_key(hash_table_t *ht, int index, const char *key); */
 
 /**
  * hash_table_set - adds a hash node to a hash table
@@ -17,7 +17,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int index;
 	const unsigned char *key_copy = (const unsigned char *)key;
 	hash_node_t *new;
-	hash_table_t *tmp = ht;
+/*	hash_table_t *tmp = ht; */
 
 	/* first check if key is empty or NULL */
 	if (strcmp(key, "") == 0 || !key || !value)
@@ -33,25 +33,26 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	 * check if key exists in hash table
 	 * if key does exist then change value of key
 	 */
-	if (is_new_key(tmp, index, key) == 1)
-	{
-		while (tmp->array[index])
-		{
-			if (strcmp(tmp->array[index]->key, key) == 0)
-			{
-				int len = strlen(value) + 1;
-
-				free(tmp->array[index]->value);
-				tmp->array[index]->value = malloc(sizeof(char) * len);
-				tmp->array[index]->value = (char *)value;
-				break;
-			}
-			tmp->array[index] = tmp->array[index]->next;
-		}
-		printf("five\n");
-		return (1);
-	}
-
+/*
+ *	if (is_new_key(tmp, index, key) == 1)
+ *	{
+ *		while (tmp->array[index])
+ *		{
+ *			if (strcmp(tmp->array[index]->key, key) == 0)
+*			{
+*				int len = strlen(value) + 1;
+*
+*				free(tmp->array[index]->value);
+*				tmp->array[index]->value = malloc(sizeof(char) * len);
+*				tmp->array[index]->value = (char *)value;
+*				break;
+*			}
+*			tmp->array[index] = tmp->array[index]->next;
+*		}
+*		printf("five\n");
+*		return (1);
+*	}
+*/
 	/* create a hash node for key/value pair */
 	new = create_hash_node(key, value);
 	if (!new)
@@ -115,21 +116,23 @@ hash_node_t *create_hash_node(const char *key, const char *value)
  *
  * Return: 1 if key exists, 0 otherwise
  */
-int is_new_key(hash_table_t *ht, int index, const char *key)
-{
-	hash_table_t *tmp = ht;
-
-	if (tmp->array[index] == NULL)
-		return (0);
-
-	while (tmp->array[index])
-	{
-		if (strcmp(tmp->array[index]->key, key) == 0)
-		{
-			printf("three\n");
-			return (1);
-		}
-		tmp->array[index] = tmp->array[index]->next;
-	}
-	return (0);
-}
+/*
+ * int is_new_key(hash_table_t *ht, int index, const char *key)
+ * {
+*	hash_table_t *tmp = ht;
+*
+*	if (tmp->array[index] == NULL)
+*		return (0);
+*
+*	while (tmp->array[index])
+*	{
+*		if (strcmp(tmp->array[index]->key, key) == 0)
+*		{
+*			printf("three\n");
+*			return (1);
+*		}
+*		tmp->array[index] = tmp->array[index]->next;
+*	}
+*	return (0);
+*  }
+*/
