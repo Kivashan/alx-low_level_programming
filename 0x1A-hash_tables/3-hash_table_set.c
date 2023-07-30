@@ -48,7 +48,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			}
 			tmp->array[index] = tmp->array[index]->next;
 		}
-		return (0);
+		return (1);
 	}
 
 	/* create a hash node for key/value pair */
