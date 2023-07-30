@@ -63,11 +63,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	{
 		new->next = ht->array[index];		
 		ht->array[index] = new;
-		printf("six\n");
 		return (1);
 	}
 
-	printf("four\n");
 	/* add new hash node to singly linked list if not empty*/
 	new->next = ht->array[index];
 	ht->array[index] = new;
