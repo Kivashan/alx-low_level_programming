@@ -109,16 +109,16 @@ hash_node_t *create_hash_node(const char *key, const char *value)
  */
 int is_new_key(hash_table_t *ht, int index, const char *key)
 {
-	if (ht->array[index] == NULL)
+	hash_table_t *tmp = ht;
+
+	if (tmp->array[index] == NULL)
 		return (0);
 
-	while (ht->array[index])
+	while (tmp->array[index])
 	{
-		if (strcmp(ht->array[index]->key, key) == 0)
+		if (strcmp(tmp->array[index]->key, key) == 0)
 			return (1);
-		ht->array[index] = ht->array[index]->next;
+		tmp->array[index] = tmp->array[index]->next;
 	}
-	if (strcmp(ht->array[index]->key, key) == 0)
-		return (1);
 	return (0);
 }
