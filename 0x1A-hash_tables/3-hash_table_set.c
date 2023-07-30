@@ -41,7 +41,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			{
 				int len = strlen(value) + 1;
 
-				free(tmp->array[index]->key)
+				free(tmp->array[index]->key);
 				tmp->array[index]->key = malloc(sizeof(char) * len);
 				tmp->array[index]->key = (char *)value;
 				break;
