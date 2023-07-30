@@ -1,7 +1,7 @@
 #include "hash_tables.h"
 
 hash_node_t *create_hash_node(const char *key, const char *value);
-int is_new_key(hash_table_t *ht, int index, const char *key);
+int is_new_key(hash_table_t **ht, int index, const char *key);
 
 /**
  * hash_table_set - adds a hash node to a hash table
@@ -34,7 +34,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	 * if key does exist then change value of key
 	 */
 
-	if (is_new_key(tmp, index, key) == 1)
+	if (is_new_key(&tmp, index, key) == 1)
 	{
 		while (tmp->array[index])
 		{
@@ -114,9 +114,9 @@ hash_node_t *create_hash_node(const char *key, const char *value)
  * Return: 1 if key exists, 0 otherwise
  */
 
-int is_new_key(hash_table_t *ht, int index, const char *key)
+int is_new_key(hash_table_t **ht, int index, const char *key)
 {
-	hash_table_t *tmp = ht;
+	hash_table_t *tmp = *ht;
 
 	if (tmp->array[index] == NULL)
 		return (0);
@@ -125,6 +125,8 @@ int is_new_key(hash_table_t *ht, int index, const char *key)
 	{
 		if (strcmp(tmp->array[index]->key, key) == 0)
 			return (1);
+		if (tmp->array[index]->next == NULL)
+			break;
 		tmp->array[index] = tmp->array[index]->next;
 	}
 	return (0);
