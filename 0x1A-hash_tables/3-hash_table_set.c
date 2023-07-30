@@ -105,17 +105,18 @@ hash_node_t *create_hash_node(const char *key, const char *value)
 int is_new_key(hash_table_t **ht, int index, const char *key)
 {
 	hash_table_t *tmp = *ht;
+	hash_node_t *head = tmp->array[index];
 
-	if (tmp->array[index] == NULL)
+	if (head == NULL)
 		return (0);
 
-	while (tmp->array[index])
+	while (head)
 	{
-		if (strcmp(tmp->array[index]->key, key) == 0)
+		if (strcmp(head->key, key) == 0)
 			return (1);
-		if (tmp->array[index]->next == NULL)
+		if (head->next == NULL)
 			break;
-		tmp->array[index] = tmp->array[index]->next;
+		head = head->next;
 	}
 	return (0);
 }
