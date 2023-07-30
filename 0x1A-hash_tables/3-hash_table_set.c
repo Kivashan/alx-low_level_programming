@@ -125,8 +125,6 @@ int is_new_key(hash_table_t **ht, int index, const char *key)
 	{
 		if (strcmp(tmp->array[index]->key, key) == 0)
 			return (1);
-		if (tmp->array[index]->next == NULL)
-			break;
 		tmp->array[index] = tmp->array[index]->next;
 	}
 	return (0);
