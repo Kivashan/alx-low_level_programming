@@ -29,18 +29,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	index = key_index(key_copy, ht->size);
 
-	/* create a hash node for key/value pair */
-	new = create_hash_node(key, value);
-	if (!new)
-		return (0);
-
-	/* add new node to empty singly linked list stored under array[index] */
-	if (ht->array[index] == NULL)
-	{
-		ht->array[index] = new;
-		return (1);
-	}
-
 	/*
 	 * check if key exists in hash table
 	 * if key does exist then change value of key
@@ -58,6 +46,18 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		}
 		return (1);
 	}
+
+	/* create a hash node for key/value pair */
+    new = create_hash_node(key, value);
+    if (!new)
+        return (0);
+
+    /* add new node to empty singly linked list stored under array[index] */
+    if (ht->array[index] == NULL)
+    {   
+        ht->array[index] = new;
+        return (1);
+    }
 
 	/* add new hash node to singly linked list if not empty*/
 	new->next = ht->array[index];
