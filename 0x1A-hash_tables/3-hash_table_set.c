@@ -41,13 +41,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			{
 				int len = strlen(value) + 1;
 
-				free(tmp->array[index]->key);
-				tmp->array[index]->key = malloc(sizeof(char) * len);
-				tmp->array[index]->key = (char *)value;
+				free(tmp->array[index]->value);
+				tmp->array[index]->value = malloc(sizeof(char) * len);
+				tmp->array[index]->value = (char *)value;
 				break;
 			}
 			tmp->array[index] = tmp->array[index]->next;
 		}
+		printf("five\n");
 		return (1);
 	}
 
@@ -59,10 +60,13 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	/* add new node to empty singly linked list stored under array[index] */
 	if (ht->array[index] == NULL)
 	{
+		new->next = ht->array[index];		
 		ht->array[index] = new;
+		printf("six\n");
 		return (1);
 	}
 
+	printf("four\n");
 	/* add new hash node to singly linked list if not empty*/
 	new->next = ht->array[index];
 	ht->array[index] = new;
@@ -121,7 +125,10 @@ int is_new_key(hash_table_t *ht, int index, const char *key)
 	while (tmp->array[index])
 	{
 		if (strcmp(tmp->array[index]->key, key) == 0)
+		{
+			printf("three\n");
 			return (1);
+		}
 		tmp->array[index] = tmp->array[index]->next;
 	}
 	return (0);
