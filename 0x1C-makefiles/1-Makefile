@@ -1,0 +1,6 @@
+# Makefile for compilation of c source code
+CC := gcc
+SRC := $(wildcard *.c)
+
+all: $(SRC)
+	$(CC) $(SRC) -o school
