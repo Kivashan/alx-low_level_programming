@@ -1,8 +1,8 @@
 # makefile to compile c source code
 CC := gcc
-SRC := $(wildcard *.c)
+SRC := main.c school.c
 OBJ := $(subst .c,.o,$(SRC))
 NAME := school
 
-all: $(OBJ) m.h
+all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
