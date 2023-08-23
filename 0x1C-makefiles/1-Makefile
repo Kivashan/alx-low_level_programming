@@ -1,6 +1,5 @@
-# Makefile for compilation of c source code
 CC = gcc
-SRC = $(wildcard *.c)
+SRC= school.c main.c
 
-all: $(SRC) m.h
+all: "$(SRC)" m.h
 	$(CC) $(SRC) -o school
