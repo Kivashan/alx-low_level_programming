@@ -1,0 +1,23 @@
+# makefile to compile c source code
+CC := gcc
+SRC := $(wildcard *.c)
+OBJ := $(subst .c,.o,$(SRC))
+NAME := school
+RM := rm -f
+
+all: $(OBJ) m.h
+	$(CC) $(OBJ) -o $(NAME)
+
+.PHONY : clean
+# remove vim files and executable
+clean :
+	$(RM) *~ $(NAME)
+
+# remove object files
+oclean:
+	$(RM) $(OBJ)
+
+# remove obj files, vim files and executables
+fclean: clean oclean
+
+re: oclean all
