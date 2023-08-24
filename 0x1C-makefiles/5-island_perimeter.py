@@ -19,30 +19,25 @@ def island_perimeter(grid):
 
     # Traverse grid
     for row in range(r):
-        for column in range(c):
+        for col in range(c):
 
             # check if land then check perimeter
-            if grid[row][column] == 1:
-
-                [[cells += 1 if row == 0]]
-                [[cells += 1 if row == r]]
-                [[cells += 1 if column == 0]]
-                [[cells += 1 if column == c]]
+            if grid[row][col] == 1:
 
                 # check whats north of current element
-                if (row - 1 > 0) and grid[row - 1][column] == 0:
+                if (row - 1 >= 0) and grid[row - 1][col] == 0 or row == 0:
                     cells += 1
 
                 # check whats south of current element
-                if (row + 1 < r) and grid[row + 1][column] == 0:
+                if (row + 1 <= r) and grid[row + 1][col] == 0 or row == r:
                     cells += 1
 
                 # check whats east of current element
-                if (column + 1 < c) and grid[row][column + 1] == 0:
+                if (col + 1 <= c) and grid[row][col + 1] == 0 or col == c:
                     cells += 1
 
                 # check whats west of current element
-                if (column - 1 > 0) and grid[row][column - 1] == 0:
+                if (col - 1 >= 0) and grid[row][col - 1] == 0:
                     cells += 1
 
     return (cells)
