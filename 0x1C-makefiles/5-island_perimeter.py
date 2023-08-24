@@ -24,6 +24,11 @@ def island_perimeter(grid):
             # check if land then check perimeter
             if grid[row][column] == 1:
 
+                [[cells += 1 if row == 0]]
+                [[cells += 1 if row == r]]
+                [[cells += 1 if column == 0]]
+                [[cells += 1 if column == c]]
+
                 # check whats north of current element
                 if (row - 1 > 0) and grid[row - 1][column] == 0:
                     cells += 1
